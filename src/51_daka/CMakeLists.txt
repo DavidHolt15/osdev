@@ -64,7 +64,7 @@ add_executable(uiaos-kernel
 	src/libc/string.c
 	src/libc/stdio.c
 	src/common.c
-	src/monitor.c
+	src/screen.c
 	src/gdt.c
 	src/descriptor_table.asm
 	src/multiboot2.asm

@@ -1,11 +1,11 @@
 #include "libc/system.h"
 #include "libc/stdarg.h"
 
-extern void monitor_put(char c);
+extern void screen_put(char c);
 
 int putchar(int ic) {
     char c = (char) ic;
-    monitor_put(c);
+    screen_put(c);
 	return ic;
 }
 

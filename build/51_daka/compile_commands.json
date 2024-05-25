@@ -26,8 +26,8 @@
 },
 {
   "directory": "/workspaces/osdev/build/51_daka",
-  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/monitor.c.o -c /workspaces/osdev/src/51_daka/src/monitor.c",
-  "file": "/workspaces/osdev/src/51_daka/src/monitor.c"
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/screen.c.o -c /workspaces/osdev/src/51_daka/src/screen.c",
+  "file": "/workspaces/osdev/src/51_daka/src/screen.c"
 },
 {
   "directory": "/workspaces/osdev/build/51_daka",
