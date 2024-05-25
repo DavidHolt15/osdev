@@ -1,7 +1,11 @@
 #include "libc/stdint.h"
 #include "libc/stddef.h"
 #include "libc/stdbool.h"
-#include <multiboot2.h>
+#include "libc/system.h"
+
+#include "multiboot2.h"
+#include "monitor.h"
+#include "gdt.h"
 
 struct multiboot_info {
     uint32_t size;
@@ -10,11 +14,12 @@ struct multiboot_info {
 };
 
 int kernel_main();
-
+extern uint32_t end;
 
 int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
+    monitor_initialize();
+    init_gdt();
+    printf("Hello, World!\n");
 
-
-    // Call cpp kernel_main (defined in kernel.cpp)
     return kernel_main();
 }

@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/libc/panic.c.o -c /workspaces/osdev/src/51_daka/src/libc/panic.c",
+  "file": "/workspaces/osdev/src/51_daka/src/libc/panic.c"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/libc/system.c.o -c /workspaces/osdev/src/51_daka/src/libc/system.c",
+  "file": "/workspaces/osdev/src/51_daka/src/libc/system.c"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/libc/string.c.o -c /workspaces/osdev/src/51_daka/src/libc/string.c",
+  "file": "/workspaces/osdev/src/51_daka/src/libc/string.c"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/libc/stdio.c.o -c /workspaces/osdev/src/51_daka/src/libc/stdio.c",
+  "file": "/workspaces/osdev/src/51_daka/src/libc/stdio.c"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/common.c.o -c /workspaces/osdev/src/51_daka/src/common.c",
+  "file": "/workspaces/osdev/src/51_daka/src/common.c"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/monitor.c.o -c /workspaces/osdev/src/51_daka/src/monitor.c",
+  "file": "/workspaces/osdev/src/51_daka/src/monitor.c"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/gdt.c.o -c /workspaces/osdev/src/51_daka/src/gdt.c",
+  "file": "/workspaces/osdev/src/51_daka/src/gdt.c"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/bin/nasm -I/workspaces/osdev/src/51_daka/include -f elf32 -o CMakeFiles/uiaos-kernel.dir/src/descriptor_table.asm.o /workspaces/osdev/src/51_daka/src/descriptor_table.asm",
+  "file": "/workspaces/osdev/src/51_daka/src/descriptor_table.asm"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/bin/nasm -I/workspaces/osdev/src/51_daka/include -f elf32 -o CMakeFiles/uiaos-kernel.dir/src/multiboot2.asm.o /workspaces/osdev/src/51_daka/src/multiboot2.asm",
+  "file": "/workspaces/osdev/src/51_daka/src/multiboot2.asm"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/kernel.c.o -c /workspaces/osdev/src/51_daka/src/kernel.c",
+  "file": "/workspaces/osdev/src/51_daka/src/kernel.c"
+},
+{
+  "directory": "/workspaces/osdev/build/51_daka",
+  "command": "/usr/local/bin/i686-elf-g++ -I/workspaces/osdev/src/51_daka/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -g -Wno-unused-variable -Wno-unused-parameter -std=gnu++20 -o CMakeFiles/uiaos-kernel.dir/src/kernel.cpp.o -c /workspaces/osdev/src/51_daka/src/kernel.cpp",
+  "file": "/workspaces/osdev/src/51_daka/src/kernel.cpp"
+}
+]

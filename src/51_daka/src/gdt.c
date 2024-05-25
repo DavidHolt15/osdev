@@ -1,9 +1,8 @@
-#include "descriptor_tables.h"
+#include "gdt.h"
 
 extern void gdt_flush(uint32_t gdt_ptr);
 
 void init_gdt() {
-  // Set the GDT limit
   gdt_ptr.limit = sizeof(struct gdt_entry_t) * GDT_ENTRIES - 1;
   gdt_ptr.base = (uint32_t) &gdt;
 

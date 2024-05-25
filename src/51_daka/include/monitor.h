@@ -1,7 +1,6 @@
 #ifndef MONITOR_H
 #define MONITOR_H
 
-#include "common.h"
 #include "libc/stdint.h"
 #include "libc/stddef.h"
 
@@ -14,4 +13,4 @@ void monitor_write(const char* data, size_t size);
 void monitor_write_hex(uint32_t n);
 void monitor_write_dec(uint32_t n);
 
-#endif // MONITOR_H
+#endif
