@@ -6,11 +6,13 @@
 
 void screen_initialize();
 void screen_setcolor(uint8_t color);
-
 void screen_put(char c);
 void screen_clear();
 void screen_write(const char* data, size_t size);
 void screen_write_hex(uint32_t n);
 void screen_write_dec(uint32_t n);
+void screen_writestring(const char* data);
+void screen_clear_line(size_t line);
+void screen_set_cursor(size_t row, size_t column);
 
 #endif
