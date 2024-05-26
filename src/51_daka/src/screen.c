@@ -1,23 +1,24 @@
 #include "screen.h"
 #include "libc/system.h"
+#include "common.h"
 
 enum vga_color {
-    VGA_COLOR_BLACK = 0,
+    VGA_COLOR_LIGHT_GREY = 0,
     VGA_COLOR_BLUE = 1,
     VGA_COLOR_GREEN = 2,
     VGA_COLOR_CYAN = 3,
     VGA_COLOR_RED = 4,
     VGA_COLOR_MAGENTA = 5,
     VGA_COLOR_BROWN = 6,
-    VGA_COLOR_LIGHT_GREY = 7,
+    VGA_COLOR_BLACK = 7,
     VGA_COLOR_DARK_GREY = 8,
     VGA_COLOR_LIGHT_BLUE = 9,
     VGA_COLOR_LIGHT_GREEN = 10,
     VGA_COLOR_LIGHT_CYAN = 11,
-    VGA_COLOR_LIGHT_RED = 12,
+    VGA_COLOR_WHITE = 12,
     VGA_COLOR_LIGHT_MAGENTA = 13,
     VGA_COLOR_LIGHT_BROWN = 14,
-    VGA_COLOR_WHITE = 15,
+    VGA_COLOR_LIGHT_RED = 15,
 };
 
 static const size_t SCREEN_WIDTH = 80;
@@ -30,8 +31,8 @@ uint8_t screen_color;
 uint16_t* screen_buffer;
 
 static void scroll_screen() {
-    uint8_t attributeByte = (0 /*black*/ << 4) | (15 /*white*/ & 0x0F);
-    uint16_t blank = 0x20 /* space */ | (attributeByte << 8);
+    uint8_t attributeByte = (7 << 4) | (12 & 0x0F);
+    uint16_t blank = 0x20 | (attributeByte << 8);
     if (screen_row >= SCREEN_HEIGHT) {
         for (size_t i = 0; i < (SCREEN_HEIGHT - 1) * SCREEN_WIDTH; i++) {
             screen_buffer[i] = screen_buffer[i + SCREEN_WIDTH];
@@ -45,10 +46,10 @@ static void scroll_screen() {
 
 static void update_cursor() {
     uint16_t pos = screen_row * SCREEN_WIDTH + screen_column;
-    outb(0x3D4, 0x0F);
-    outb(0x3D5, (uint8_t)(pos & 0xFF));
-    outb(0x3D4, 0x0E);
-    outb(0x3D5, (uint8_t)((pos >> 8) & 0xFF));
+    writePort8(0x3D4, 0x0F);
+    writePort8(0x3D5, (uint8_t)(pos & 0xFF));
+    writePort8(0x3D4, 0x0E);
+    writePort8(0x3D5, (uint8_t)((pos >> 8) & 0xFF));
 }
 
 static inline uint8_t get_vga_color(enum vga_color fg, enum vga_color bg) {
