@@ -45,8 +45,9 @@ int kernel_main(){
     }, NULL);
 
     // Trigger interrupts to test handlers
+    asm volatile ("int $0x1");
+    asm volatile ("int $0x2");
     asm volatile ("int $0x3");
-    asm volatile ("int $0x4");
 
     // Enable interrupts
     asm volatile("sti");
