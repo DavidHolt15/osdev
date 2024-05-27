@@ -1,5 +1,4 @@
 #include "multiboot2.h"
-
 #include "libc/stdint.h"
 #include "libc/stddef.h"
 #include "libc/stdbool.h"
@@ -7,7 +6,8 @@
 
 // #include "pit.h"
 #include "common.h"
-#include "descriptor_tables.h"
+#include "gdt.h"
+#include "idt.h"
 #include "interrupts.h"
 #include "monitor.h"
 // #include "memory/memory.h"
@@ -31,7 +31,7 @@ extern uint32_t end;
 int kernel_main_c(uint32_t magic, struct multiboot_info* mb_info_addr) {
     // Initialize the monitor (screen output)
     monitor_initialize();
-  
+
     // Initialize the Global Descriptor Table (GDT).
     init_gdt();
 

@@ -74,21 +74,21 @@ add_executable(uiaos-kernel
 	src/isr_asm.asm
 	src/descriptor_table.asm
 
-	src/multiboot2.asm
+	src/multiboot2.asm # TODO: Add multiboot2 support
     src/kernel.c
 	src/kernel.cpp
 
 	# Memory 
-	#src/memory/malloc.c
-	#src/memory/paging.c
-	#src/memory/memutils.c
-	#src/pit.c
+	src/memory/malloc.c
+	src/memory/paging.c
+	src/memory/memutils.c
+	src/pit.c
 
 	# Keyboard
 	src/input.c
 
 	# Apps
-	#src/apps/song/song.c
+	src/apps/song/song.c
 
 )
 

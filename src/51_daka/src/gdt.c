@@ -1,4 +1,4 @@
-#include "descriptor_tables.h"
+#include "gdt.h"
 
 extern void gdt_flush(uint32_t gdt_ptr);
 
@@ -11,9 +11,10 @@ void init_gdt() {
   gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF); // Code segment
   gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF); // Data segment
   
-  gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0xCF);
-  gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0xCF);
+  gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0xCF); // User mode code segment
+  gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0xCF); // User mode data segment
 
+  // Load the GDT
   gdt_flush((uint32_t)&gdt_ptr);
 
 }

@@ -1,10 +1,9 @@
-extern "C"{
+extern "C" {
     #include "libc/system.h"
     // #include "memory/memory.h"
     #include "common.h"
     #include "interrupts.h"
     #include "input.h"
-    // #include "song/song.h"
 }
 /*
 // Existing global operator new overloads
@@ -43,8 +42,7 @@ SongPlayer* create_song_player() {
 }
 */
 extern "C" int kernel_main(void);
-int kernel_main(){
-
+int kernel_main() {
     // Set up interrupt handlers
     register_interrupt_handler(3, [](registers_t* regs, void* context) {
         printf("Interrupt 3 - OK\n");
@@ -54,9 +52,7 @@ int kernel_main(){
         printf("Interrupt 4 - OK\n");
     }, NULL);
 
-    
     register_interrupt_handler(14, [](registers_t* regs, void* context) {
-
         uint32_t faulting_address;
         __asm__ __volatile__("mov %%cr2, %0" : "=r" (faulting_address));
 
@@ -65,7 +61,6 @@ int kernel_main(){
         int32_t us = regs->err_code & 0x4;
         int32_t reserved = regs->err_code & 0x8;
         int32_t id = regs->err_code & 0x10;
-
 
         printf("Page fault! (");
         if (present)
@@ -96,9 +91,9 @@ int kernel_main(){
 
     // Main loop
     printf("Skrive:\n");
-    while(true) {
+    while (true) {
 
     }
-    
+
     return 0;
 }
