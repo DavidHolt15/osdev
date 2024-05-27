@@ -1,7 +1,8 @@
 #include "libc/stdarg.h"
 #include "libc/system.h"
 
-char* hex32_to_str(char buffer[], unsigned int val) {
+char* hex32_to_str(char buffer[], unsigned int val)
+{
 	char const lut[] = "0123456789ABCDEF";
 	for (int i = 0; i < 4; i++)
 	{
@@ -12,7 +13,8 @@ char* hex32_to_str(char buffer[], unsigned int val) {
 	return buffer;
 }
 
-char* int32_to_str(char buffer[], int val) {
+char* int32_to_str(char buffer[], int val)
+{
 	char* b = buffer;
 	// negation
 	if (val < 0) { *b++ = '-'; val *= -1; }

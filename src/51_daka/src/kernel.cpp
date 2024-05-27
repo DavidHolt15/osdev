@@ -1,9 +1,50 @@
+
 extern "C"{
     #include "libc/system.h"
+    #include "memory/memory.h"
     #include "common.h"
     #include "interrupts.h"
     #include "input.h"
-    #include "descriptor_tables.h"
+    #include "song/song.h"
+}
+
+
+
+
+// Existing global operator new overloads
+void* operator new(size_t size) {
+    return malloc(size);
+}
+
+void* operator new[](size_t size) {
+    return malloc(size);
+}
+
+// Existing global operator delete overloads
+void operator delete(void* ptr) noexcept {
+    free(ptr);
+}
+
+void operator delete[](void* ptr) noexcept {
+    free(ptr);
+}
+
+// Add sized-deallocation functions
+void operator delete(void* ptr, size_t size) noexcept {
+    (void)size; // Size parameter is unused, added to match required signature
+    free(ptr);
+}
+
+void operator delete[](void* ptr, size_t size) noexcept {
+    (void)size; // Size parameter is unused, added to match required signature
+    free(ptr);
+}
+
+
+SongPlayer* create_song_player() {
+    auto* player = new SongPlayer();
+    player->play_song = play_song_impl;
+    return player;
 }
 
 extern "C" int kernel_main(void);
@@ -41,13 +82,13 @@ int kernel_main(){
         if (reserved)
             printf("reserved");
         printf(")\n\n");
+        panic("Page fault");
 
     }, NULL);
 
     // Trigger interrupts to test handlers
-    asm volatile ("int $0x1");
-    asm volatile ("int $0x2");
     asm volatile ("int $0x3");
+    asm volatile ("int $0x4");
 
     // Enable interrupts
     asm volatile("sti");

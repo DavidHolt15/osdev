@@ -5,10 +5,12 @@
 #include "libc/stdbool.h"
 #include "libc/system.h"
 
+#include "pit.h"
 #include "common.h"
 #include "descriptor_tables.h"
 #include "interrupts.h"
 #include "monitor.h"
+#include "memory/memory.h"
 
 // Structure to hold multiboot information.
 struct multiboot_info {
@@ -38,6 +40,17 @@ int kernel_main_c(uint32_t magic, struct multiboot_info* mb_info_addr) {
 
     // Initialize the hardware interrupts.
     init_irq();
+
+    // Initialize the kernel's memory manager using the end address of the kernel.
+    init_kernel_memory(&end);
+
+    // Initialize paging for memory management.
+    init_paging();
+
+    // Print memory information.
+    print_memory_layout();
+
+    init_pit();
 
     // Print a hello world message.
     printf("Hello World!\n");
