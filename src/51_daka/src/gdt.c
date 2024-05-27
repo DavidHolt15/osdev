@@ -1,8 +1,6 @@
 #include "descriptor_tables.h"
 
-
 extern void gdt_flush(uint32_t gdt_ptr);
-
 
 void init_gdt() {
   // Set the GDT limit
@@ -13,14 +11,12 @@ void init_gdt() {
   gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF); // Code segment
   gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF); // Data segment
   
-  gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0xCF); // User mode code segment
-  gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0xCF); // User mode data segment
+  gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0xCF);
+  gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0xCF);
 
-  // Load the GDT
   gdt_flush((uint32_t)&gdt_ptr);
 
 }
-
 
 // Set the value of one GDT entry.
 void gdt_set_gate(int32_t num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)

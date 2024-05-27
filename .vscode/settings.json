@@ -14,7 +14,8 @@
         "multiboot2.h": "c",
         "interrupts.h": "c",
         "memory.h": "c",
-        "limits.h": "c"
+        "limits.h": "c",
+        "descriptor_tables.h": "c"
     }
 
 }

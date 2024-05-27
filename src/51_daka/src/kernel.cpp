@@ -1,16 +1,12 @@
-
 extern "C"{
     #include "libc/system.h"
-    #include "memory/memory.h"
+    // #include "memory/memory.h"
     #include "common.h"
     #include "interrupts.h"
     #include "input.h"
-    #include "song/song.h"
+    // #include "song/song.h"
 }
-
-
-
-
+/*
 // Existing global operator new overloads
 void* operator new(size_t size) {
     return malloc(size);
@@ -40,13 +36,12 @@ void operator delete[](void* ptr, size_t size) noexcept {
     free(ptr);
 }
 
-
 SongPlayer* create_song_player() {
     auto* player = new SongPlayer();
     player->play_song = play_song_impl;
     return player;
 }
-
+*/
 extern "C" int kernel_main(void);
 int kernel_main(){
 
@@ -86,32 +81,24 @@ int kernel_main(){
 
     }, NULL);
 
-    // Trigger interrupts to test handlers
     asm volatile ("int $0x3");
     asm volatile ("int $0x4");
-
-    // Enable interrupts
     asm volatile("sti");
 
-    // Register IRQ handler for keyboard (IRQ1)
     register_irq_handler(IRQ1, [](registers_t*, void*) {
-        // Read from keyboard
         unsigned char scan_code = inb(0x60);
         char f = scancode_to_ascii(&scan_code);
 
         printf("%c", f);
 
-        // Disable
         asm volatile("cli");
     }, NULL);
 
     // Main loop
-    printf("Kernel main loop\n");
+    printf("Skrive:\n");
     while(true) {
-        // Kernel main tasks
-    }
 
-    // This part will not be reached
-    printf("Done!\n");
+    }
+    
     return 0;
 }
