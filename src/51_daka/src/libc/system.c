@@ -23,3 +23,4 @@ void _exit(int status)
     panic(buffer);
     __builtin_unreachable();
 }
+
